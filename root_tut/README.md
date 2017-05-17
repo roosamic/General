@@ -1,4 +1,4 @@
-This has the assignment that moshe sent me and the respective solutions
+This has the assignment that I used to get introduced to ROOT and the respective solutions
 the solutions for parts 2 and 3 are in seperate folders to keep them from being confused
 I did most of the work in the interpriter but i have transcribed them into Macros
 
