@@ -1,0 +1,95 @@
+ROOT exercises:
+
+1.       ROOT as a calculator
+
+There are 5 students in math class. Their final grades were: 82,85,86,90,93 and 95. Write a script that does the following:
+
+1.1.    Create an array of doubles and populate it with the grades.
+
+1.2.    Print the average grade.
+
+1.3.    For each student, print the deviation from the average grade.
+
+1.4.    Print the geometric mean of the grades (no meaning for that number, of course).
+
+2.       Simple histogram
+
+There are 15 students in the class, and their grades are:
+
+86,77,85,80,85,80,75,80,80,78,88,74,80,71,74
+
+Use the interpreter to do the following:
+
+2.1.    Create a histogram of doubles and fill it with the grades above.
+
+2.2.    Draw the histogram you created.
+
+2.3.    Set a meaningful title for the histogram and to the x-axis.
+
+2.4.    What is the average grade?
+
+2.5.    What is the standard deviation?
+
+2.6.    Try to find the best function to describe the distribution of the grades.
+
+2.7.    Fit the function you find to the data. How are yours fit results corresponds to 2.4 and 2.5?
+
+2.8.    Write a script that does all these steps automatically.
+
+3.       Simple graph
+
+Create a text file with the following values:
+
+4582    943      50
+
+4582    2307    491
+
+4908    1268    103
+
+5597    3326    172
+
+5802    2162    220
+
+6170    3899    455
+
+6620    2980    700
+
+6871    3231    85
+
+7107    3463    23
+
+7107    4850    340
+
+7255    3610    177
+
+7255    4986    233
+
+7678    5407    443
+
+7892    1377    156
+
+7892    1489    223
+
+7892    4252    347
+
+7892    5624    270
+
+8193    1804    100
+
+8193    4545    370
+
+Use the interpreter to do the following:
+
+3.1.    Read the file to a TGraphErrors object, where the columns should be referred as: X,Y,Y_error
+
+3.2.    Choose some title to the graph (no meaning to these numbers), and to the graph axis.
+
+3.3.    Choose the marker style to be either squares or circles.
+
+3.4.    Choose the marker AND line color to be any color you like.
+
+3.5.    Draw the graph without any additional lines (only the data and the error bars should be there).
+
+3.6.    Using the graphical interface, add some text to the graph.
+
+3.7.    Save the graph as a PDF AND as a ROOT script (C file).
