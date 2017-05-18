@@ -17,9 +17,9 @@ CFLAGS = `root-config --cflags` \
 LDFLAGS = -L$(LIBDIR) -lGarfield
 LDFLAGS += `root-config --glibs` -lGeom -lgfortran -lm 
 
-gastable: gastable.C
-	$(CXX) $(CFLAGS) -c gastable.C
-	$(CXX) $(CFLAGS) -o gastable gastable.o $(LDFLAGS)
-	rm gastable.o
+drifttube: drifttube.C
+	$(CXX) $(CFLAGS) -c drifttube.C
+	$(CXX) $(CFLAGS) -o drifttube drifttube.o $(LDFLAGS)
+	rm drifttube.o
 
 

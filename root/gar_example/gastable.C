@@ -12,7 +12,7 @@ This is following the drift tube example from the Garfield user guide.
 It generates a gas table for the given gas combination and electric field.
 Expect this to take several hours on a personal computer. 
 
-last changed May 5, 2017
+last changed May 15, 2017
 roosa@nscl.msu.edu
 */
 

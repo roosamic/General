@@ -18,16 +18,27 @@
 using namespace Garfield;
 
 /*
-This is following the drift tube example from the Garfield user guide.
-It loads the outfile from the gastable.C script, builds the drift tube
-and simulates the avalanches
+This will be used to simulate an electron avalanche in a micromegas detector.
+requires precalculation of a .gas file, one is included.
+
 
 last changed May 18, 2017
 roosa@nscl.msu.edu
 */
 
 int main(int argc, char * argv[]){
+  //set the measurements of the detector
+  //len=>cm
+  double len_drift = 40; 
+  double len_aval = 100.e-4; 
+  double diameter = 15;
+  //voltages (V)
+  double v_drift = 5000;
+  doubel v_aval = 300;
 
+  
+  //TApplication makes the outputs work as if it were run from root.
+  // Create and setup the geometry.
   TApplication app("app", &argc, argv);
   plottingEngine.SetDefaultStyle();
 
@@ -40,16 +51,12 @@ int main(int argc, char * argv[]){
   GeometrySimple* geo = new GeometrySimple();
 
 
-  
+  //make tube
   //set the dimensions of the tube/wire, all in [cm] 
-  double r_wire = 25.e-4;
-  double r_tube = 1.46;
-  double halflen_tube = 10;
+  double r_tube = diameter/2;
+  double halflen_tube = (len_drift+len_aval)/2;
 
-
-  //make the tube
-  //first 3 zeros are (x,y, inner radius ) 
-  SolidTube* tube = new SolidTube(0. , 0. , 0. , r_wire, r_tube, halflen_tube);
+  //insert tube declaration here
 
   //put gas in the tube
   geo->AddSolid(tube,gas);
@@ -64,16 +71,14 @@ int main(int argc, char * argv[]){
   double v_wire = 3270;
   double v_tube = 0;
 
-  //place the wire at the origin, with diameter 2*r_wire, volatege v_wire and, labled "s"
-  cmp->AddWire(0. , 0. ,2*r_wire, v_wire, "s");
 
   //place tube with radius r_tube, voltage v_tube, n=0 edges (cylinder) and, labled "t"
   cmp->AddTube(r_tube, v_tube, 0, "t");
-
+  /*
   //get the signal in the wire
   cmp->AddReadout("s");
 
-
+  
   //make to a sensor and add component field
   Sensor* sensor = new Sensor();
   sensor->AddComponent(cmp);
@@ -98,6 +103,7 @@ int main(int argc, char * argv[]){
   aval->SetTimeSteps(.05);
 
   //place an avalance electron slightly off the wire and simulate
+  //make a randomized placement system
   double x0 = 0.;
   double y0 = r_wire + 100.e-4;
   double z0 = 0.;
@@ -113,6 +119,7 @@ int main(int argc, char * argv[]){
   
   signal_view->SetSensor(sensor);
   signal_view->PlotSignal("s");
+  */
 
   
   //look at the geometry
