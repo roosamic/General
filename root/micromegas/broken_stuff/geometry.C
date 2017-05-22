@@ -11,6 +11,7 @@
 #include "ViewCell.hh"
 #include "ViewGeometry.hh"
 #include "Plotting.hh"
+#include "MediumSilicon.hh"
 
 using namespace Garfield;
 
@@ -32,6 +33,8 @@ int main(int argc, char * argv[]){
   //load in the gas data
   MediumMagboltz* gas =new MediumMagboltz();
   gas->LoadGasFile("ar_93_co2_7.gas");
+  //declare silicon as a medium
+  MediumSilicon* Si = new MediumSilicon();
 
   //declare the analytic field, and the geometry
   ComponentAnalyticField* cmp = new ComponentAnalyticField();
@@ -51,13 +54,18 @@ int main(int argc, char * argv[]){
   SolidTube* tube = new SolidTube(0., 0., 0., 0., r_tube, halflen_tube);
   SolidTube* drift_cap = new SolidTube(0., 0., cap_dist, 0., r_tube, halflen_cap);
   SolidTube* aval_cap = new SolidTube(0., 0.,-cap_dist, 0., r_tube, halflen_cap);
-  SolidTube* micromegas = new SolidTube(0., 0., cap_dist, 0., r_tube, halflen_cap);
+  SolidTube* micromegas = new SolidTube(0., 0., mm_dist, 0., r_tube, halflen_mm);
 
   //make tube of gas and add caps
   geo->AddSolid(tube,gas);
-  //i gave the caps gas material bc i don't know how to use stainless steel yet
-  geo->AddSolid(drift_cap,gas);
-  geo->AddSolid(aval_cap,gas);
+  //i gave the caps silicon material bc i don't know how to import other options
+  geo->AddSolid(micromegas,gas);
+  geo->AddSolid(drift_cap,Si);
+  geo->AddSolid(aval_cap,Si);
+
+  geo->PrintSolids();
+
+
 
   /*
 

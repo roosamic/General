@@ -17,9 +17,9 @@ CFLAGS = `root-config --cflags` \
 LDFLAGS = -L$(LIBDIR) -lGarfield
 LDFLAGS += `root-config --glibs` -lGeom -lgfortran -lm 
 
-geometry: geometry.C
-	$(CXX) $(CFLAGS) -c geometry.C
-	$(CXX) $(CFLAGS) -o geometry geometry.o $(LDFLAGS)
-	rm geometry.o
+use_TGeo: use_TGeo.C
+	$(CXX) $(CFLAGS) -c use_TGeo.C
+	$(CXX) $(CFLAGS) -o use_TGeo use_TGeo.o $(LDFLAGS)
+	rm use_TGeo.o
 
 
