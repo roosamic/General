@@ -1,1 +1,0 @@
-This has some of the scripts I used to simulate the micromegas detector
