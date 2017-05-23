@@ -1,3 +1,5 @@
+#Magboltz has 60 built in gases, this is the list, pulled from the MagboltzMedium source.
+
    CF4
     number = 1;
   
